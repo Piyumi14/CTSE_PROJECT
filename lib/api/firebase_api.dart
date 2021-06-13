@@ -1,32 +1,34 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:todo_app_firestore_example/model/todo.dart';
+import 'package:todo_app_firestore_example/model/styles.dart';
 import 'package:todo_app_firestore_example/utils.dart';
 
 class FirebaseApi {
-  static Future<String> createTodo(Todo todo) async {
-    final docTodo = FirebaseFirestore.instance.collection('todo').doc();
+  static Future<String> createStyles(Styles styles) async {
+    final docStyles = FirebaseFirestore.instance.collection('styles').doc();
 
-    todo.id = docTodo.id;
-    await docTodo.set(todo.toJson());
+    styles.id = docStyles.id;
+    await docStyles.set(styles.toJson());
 
-    return docTodo.id;
+    return docStyles.id;
   }
 
-  static Stream<List<Todo>> readTodos() => FirebaseFirestore.instance
-      .collection('todo')
-      .orderBy(TodoField.createdTime, descending: true)
+  static Stream<List<Styles>> readStyles() => FirebaseFirestore.instance
+      .collection('styles')
+      .orderBy(StylesField.createdTime, descending: true)
       .snapshots()
-      .transform(Utils.transformer(Todo.fromJson));
+      .transform(Utils.transformer(Styles.fromJson));
 
-  static Future updateTodo(Todo todo) async {
-    final docTodo = FirebaseFirestore.instance.collection('todo').doc(todo.id);
+  static Future updateStyles(Styles styles) async {
+    final docStyles =
+        FirebaseFirestore.instance.collection('styles').doc(styles.id);
 
-    await docTodo.update(todo.toJson());
+    await docStyles.update(styles.toJson());
   }
 
-  static Future deleteTodo(Todo todo) async {
-    final docTodo = FirebaseFirestore.instance.collection('todo').doc(todo.id);
+  static Future deleteStyles(Styles styles) async {
+    final docStyles =
+        FirebaseFirestore.instance.collection('styles').doc(styles.id);
 
-    await docTodo.delete();
+    await docStyles.delete();
   }
 }

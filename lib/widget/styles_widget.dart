@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:provider/provider.dart';
-import 'package:todo_app_firestore_example/model/todo.dart';
-import 'package:todo_app_firestore_example/page/edit_todo_page.dart';
-import 'package:todo_app_firestore_example/provider/todos.dart';
+import 'package:todo_app_firestore_example/model/styles.dart';
+import 'package:todo_app_firestore_example/page/edit_styles_page.dart';
+import 'package:todo_app_firestore_example/provider/styles.dart';
 import 'package:todo_app_firestore_example/utils.dart';
 
 class TodoWidget extends StatelessWidget {
-  final Todo todo;
+  final Styles todo;
 
   const TodoWidget({
     @required this.todo,
@@ -54,11 +54,11 @@ class TodoWidget extends StatelessWidget {
                 onChanged: (_) {
                   final provider =
                       Provider.of<TodosProvider>(context, listen: false);
-                  final isDone = provider.toggleTodoStatus(todo);
+                  final isDone = provider.toggleStylesStatus(todo);
 
                   Utils.showSnackBar(
                     context,
-                    isDone ? 'Task completed' : 'Task marked incomplete',
+                    isDone ? 'Added to favourites' : 'Remove form favourites',
                   );
                 },
               ),
@@ -91,16 +91,17 @@ class TodoWidget extends StatelessWidget {
         ),
       );
 
-  void deleteTodo(BuildContext context, Todo todo) {
+  void deleteTodo(BuildContext context, Styles todo) {
     final provider = Provider.of<TodosProvider>(context, listen: false);
-    provider.removeTodo(todo);
+    provider.removeStyles(todo);
 
     Utils.showSnackBar(context, 'Deleted the task');
   }
 
-  void editTodo(BuildContext context, Todo todo) => Navigator.of(context).push(
+  void editTodo(BuildContext context, Styles todo) =>
+      Navigator.of(context).push(
         MaterialPageRoute(
-          builder: (context) => EditTodoPage(todo: todo),
+          builder: (context) => EditStylesPage(styles: todo),
         ),
       );
 }

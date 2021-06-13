@@ -1,18 +1,18 @@
 import 'package:flutter/cupertino.dart';
 import 'package:todo_app_firestore_example/utils.dart';
 
-class TodoField {
+class StylesField {
   static const createdTime = 'createdTime';
 }
 
-class Todo {
+class Styles {
   DateTime createdTime;
   String title;
   String id;
   String description;
   bool isDone;
 
-  Todo({
+  Styles({
     @required this.createdTime,
     @required this.title,
     this.description = '',
@@ -20,7 +20,7 @@ class Todo {
     this.isDone = false,
   });
 
-  static Todo fromJson(Map<String, dynamic> json) => Todo(
+  static Styles fromJson(Map<String, dynamic> json) => Styles(
         createdTime: Utils.toDateTime(json['createdTime']),
         title: json['title'],
         description: json['description'],

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:todo_app_firestore_example/provider/todos.dart';
-import 'package:todo_app_firestore_example/widget/todo_widget.dart';
+import 'package:todo_app_firestore_example/provider/styles.dart';
+import 'package:todo_app_firestore_example/widget/styles_widget.dart';
 
-class TodoListWidget extends StatelessWidget {
+class StylesListWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final provider = Provider.of<TodosProvider>(context);
@@ -12,7 +12,7 @@ class TodoListWidget extends StatelessWidget {
     return todos.isEmpty
         ? Center(
             child: Text(
-              'No todos.',
+              'No Data.',
               style: TextStyle(fontSize: 20),
             ),
           )

@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 
-class TodoFormWidget extends StatelessWidget {
+class StylesFormWidget extends StatelessWidget {
   final String title;
   final String description;
   final ValueChanged<String> onChangedTitle;
   final ValueChanged<String> onChangedDescription;
-  final VoidCallback onSavedTodo;
+  final VoidCallback onSavedStyles;
 
-  const TodoFormWidget({
+  const StylesFormWidget({
     Key key,
     this.title = '',
     this.description = '',
     @required this.onChangedTitle,
     @required this.onChangedDescription,
-    @required this.onSavedTodo,
+    @required this.onSavedStyles,
   }) : super(key: key);
 
   @override
@@ -42,7 +42,7 @@ class TodoFormWidget extends StatelessWidget {
         },
         decoration: InputDecoration(
           border: UnderlineInputBorder(),
-          labelText: 'Title',
+          labelText: 'Dancing Style',
         ),
       );
 
@@ -60,10 +60,10 @@ class TodoFormWidget extends StatelessWidget {
         width: double.infinity,
         child: ElevatedButton(
           style: ButtonStyle(
-            backgroundColor: MaterialStateProperty.all(Colors.black),
+            backgroundColor: MaterialStateProperty.all(Colors.blue),
           ),
-          onPressed: onSavedTodo,
-          child: Text('Save'),
+          onPressed: onSavedStyles,
+          child: Text('Save Details'),
         ),
       );
 }

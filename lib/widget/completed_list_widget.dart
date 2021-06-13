@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:todo_app_firestore_example/provider/todos.dart';
-import 'package:todo_app_firestore_example/widget/todo_widget.dart';
+import 'package:todo_app_firestore_example/provider/styles.dart';
+import 'package:todo_app_firestore_example/widget/styles_widget.dart';
 
 class CompletedListWidget extends StatelessWidget {
   @override

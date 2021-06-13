@@ -1,34 +1,33 @@
 {
   "project_info": {
-    "project_number": "24250491131",
-    "firebase_url": "https://todo-app-8423c.firebaseio.com",
-    "project_id": "todo-app-8423c",
-    "storage_bucket": "todo-app-8423c.appspot.com"
+    "project_number": "234237117409",
+    "project_id": "dancingstyles-e4d34",
+    "storage_bucket": "dancingstyles-e4d34.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:24250491131:android:0559efb85e8709e049905e",
+        "mobilesdk_app_id": "1:234237117409:android:b3ceaaf4d2b7f14085c8a0",
         "android_client_info": {
           "package_name": "com.example.todo_app_firestore_example"
         }
       },
       "oauth_client": [
         {
-          "client_id": "24250491131-nh3lefp7i9gck9oja2l4427oefriuejt.apps.googleusercontent.com",
+          "client_id": "234237117409-049bdg1ae0926kpejd8vbv4gd4uod5eb.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyB_UsfDWQz3dyrftDm8Q2ZljOfaIs9ALh4"
+          "current_key": "AIzaSyBMhE4GsdKFUmEB-xc5lpnW5DVeDHpi6Ww"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "24250491131-nh3lefp7i9gck9oja2l4427oefriuejt.apps.googleusercontent.com",
+              "client_id": "234237117409-049bdg1ae0926kpejd8vbv4gd4uod5eb.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

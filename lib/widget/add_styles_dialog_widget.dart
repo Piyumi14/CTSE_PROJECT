@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:todo_app_firestore_example/model/todo.dart';
-import 'package:todo_app_firestore_example/provider/todos.dart';
-import 'package:todo_app_firestore_example/widget/todo_form_widget.dart';
+import 'package:todo_app_firestore_example/model/styles.dart';
+import 'package:todo_app_firestore_example/provider/styles.dart';
+import 'package:todo_app_firestore_example/widget/styles_form_widget.dart';
 
-class AddTodoDialogWidget extends StatefulWidget {
+class AddStylesDialogWidget extends StatefulWidget {
   @override
-  _AddTodoDialogWidgetState createState() => _AddTodoDialogWidgetState();
+  _AddStylesDialogWidgetState createState() => _AddStylesDialogWidgetState();
 }
 
-class _AddTodoDialogWidgetState extends State<AddTodoDialogWidget> {
+class _AddStylesDialogWidgetState extends State<AddStylesDialogWidget> {
   final _formKey = GlobalKey<FormState>();
   String title = '';
   String description = '';
@@ -23,31 +23,31 @@ class _AddTodoDialogWidgetState extends State<AddTodoDialogWidget> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Add Todo',
+                'Add Dancing Styles',
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 22,
                 ),
               ),
               const SizedBox(height: 8),
-              TodoFormWidget(
+              StylesFormWidget(
                 onChangedTitle: (title) => setState(() => this.title = title),
                 onChangedDescription: (description) =>
                     setState(() => this.description = description),
-                onSavedTodo: addTodo,
+                onSavedStyles: addStyles,
               ),
             ],
           ),
         ),
       );
 
-  void addTodo() {
+  void addStyles() {
     final isValid = _formKey.currentState.validate();
 
     if (!isValid) {
       return;
     } else {
-      final todo = Todo(
+      final todo = Styles(
         id: DateTime.now().toString(),
         title: title,
         description: description,
@@ -55,7 +55,7 @@ class _AddTodoDialogWidgetState extends State<AddTodoDialogWidget> {
       );
 
       final provider = Provider.of<TodosProvider>(context, listen: false);
-      provider.addTodo(todo);
+      provider.addStyles(todo);
 
       Navigator.of(context).pop();
     }

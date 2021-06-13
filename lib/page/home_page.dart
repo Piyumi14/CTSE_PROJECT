@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:todo_app_firestore_example/api/firebase_api.dart';
-import 'package:todo_app_firestore_example/model/todo.dart';
-import 'package:todo_app_firestore_example/provider/todos.dart';
-import 'package:todo_app_firestore_example/widget/add_todo_dialog_widget.dart';
+import 'package:todo_app_firestore_example/model/styles.dart';
+import 'package:todo_app_firestore_example/provider/styles.dart';
+import 'package:todo_app_firestore_example/widget/add_styles_dialog_widget.dart';
 import 'package:todo_app_firestore_example/widget/completed_list_widget.dart';
-import 'package:todo_app_firestore_example/widget/todo_list_widget.dart';
+import 'package:todo_app_firestore_example/widget/styles_list_widget.dart';
 
 import '../main.dart';
 
@@ -20,7 +20,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     final tabs = [
-      TodoListWidget(),
+      StylesListWidget(),
       CompletedListWidget(),
     ];
 
@@ -39,16 +39,16 @@ class _HomePageState extends State<HomePage> {
         items: [
           BottomNavigationBarItem(
             icon: Icon(Icons.fact_check_outlined),
-            label: 'Todos',
+            label: 'Menue',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.done, size: 28),
-            label: 'Completed',
+            label: 'Favourites',
           ),
         ],
       ),
-      body: StreamBuilder<List<Todo>>(
-        stream: FirebaseApi.readTodos(),
+      body: StreamBuilder<List<Styles>>(
+        stream: FirebaseApi.readStyles(),
         builder: (context, snapshot) {
           switch (snapshot.connectionState) {
             case ConnectionState.waiting:
@@ -71,10 +71,10 @@ class _HomePageState extends State<HomePage> {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20),
         ),
-        backgroundColor: Colors.black,
+        backgroundColor: Colors.green,
         onPressed: () => showDialog(
           context: context,
-          builder: (context) => AddTodoDialogWidget(),
+          builder: (context) => AddStylesDialogWidget(),
           barrierDismissible: false,
         ),
         child: Icon(Icons.add),

@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:todo_app_firestore_example/model/todo.dart';
-import 'package:todo_app_firestore_example/provider/todos.dart';
-import 'package:todo_app_firestore_example/widget/todo_form_widget.dart';
+import 'package:todo_app_firestore_example/model/styles.dart';
+import 'package:todo_app_firestore_example/provider/styles.dart';
+import 'package:todo_app_firestore_example/widget/styles_form_widget.dart';
 
-class EditTodoPage extends StatefulWidget {
-  final Todo todo;
+class EditStylesPage extends StatefulWidget {
+  final Styles styles;
 
-  const EditTodoPage({Key key, @required this.todo}) : super(key: key);
+  const EditStylesPage({Key key, @required this.styles}) : super(key: key);
 
   @override
-  _EditTodoPageState createState() => _EditTodoPageState();
+  _EditStylesPageState createState() => _EditStylesPageState();
 }
 
-class _EditTodoPageState extends State<EditTodoPage> {
+class _EditStylesPageState extends State<EditStylesPage> {
   final _formKey = GlobalKey<FormState>();
 
   String title;
@@ -23,21 +23,21 @@ class _EditTodoPageState extends State<EditTodoPage> {
   void initState() {
     super.initState();
 
-    title = widget.todo.title;
-    description = widget.todo.description;
+    title = widget.styles.title;
+    description = widget.styles.description;
   }
 
   @override
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(
-          title: Text('Edit Todo'),
+          title: Text('Edit Dancing Styles'),
           actions: [
             IconButton(
               icon: Icon(Icons.delete),
               onPressed: () {
                 final provider =
                     Provider.of<TodosProvider>(context, listen: false);
-                provider.removeTodo(widget.todo);
+                provider.removeStyles(widget.styles);
 
                 Navigator.of(context).pop();
               },
@@ -48,19 +48,19 @@ class _EditTodoPageState extends State<EditTodoPage> {
           padding: EdgeInsets.all(16),
           child: Form(
             key: _formKey,
-            child: TodoFormWidget(
+            child: StylesFormWidget(
               title: title,
               description: description,
               onChangedTitle: (title) => setState(() => this.title = title),
               onChangedDescription: (description) =>
                   setState(() => this.description = description),
-              onSavedTodo: saveTodo,
+              onSavedStyles: saveStyles,
             ),
           ),
         ),
       );
 
-  void saveTodo() {
+  void saveStyles() {
     final isValid = _formKey.currentState.validate();
 
     if (!isValid) {
@@ -68,7 +68,7 @@ class _EditTodoPageState extends State<EditTodoPage> {
     } else {
       final provider = Provider.of<TodosProvider>(context, listen: false);
 
-      provider.updateTodo(widget.todo, title, description);
+      provider.updateStyles(widget.styles, title, description);
 
       Navigator.of(context).pop();
     }
