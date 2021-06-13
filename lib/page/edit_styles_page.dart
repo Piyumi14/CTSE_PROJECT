@@ -30,7 +30,7 @@ class _EditStylesPageState extends State<EditStylesPage> {
   @override
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(
-          title: Text('Edit Dancing Styles'),
+          title: Text('Edit Dancing Styles Details'),
           actions: [
             IconButton(
               icon: Icon(Icons.delete),
