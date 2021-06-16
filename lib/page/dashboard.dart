@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todo_app_firestore_example/page/gallery.dart';
 import 'package:todo_app_firestore_example/page/home_page.dart';
 
 class Dashboard extends StatefulWidget {
@@ -84,6 +85,13 @@ class _DashboardState extends State<Dashboard> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: <Widget>[
                                 FlatButton(
+                                  onPressed: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => Gallery()),
+                                    );
+                                  },
                                   child: Image.asset(
                                       'lib/assets/images/gallery.png'),
                                 ),

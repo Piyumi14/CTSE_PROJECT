@@ -95,7 +95,7 @@ class TodoWidget extends StatelessWidget {
     final provider = Provider.of<TodosProvider>(context, listen: false);
     provider.removeStyles(todo);
 
-    Utils.showSnackBar(context, 'Deleted the task');
+    Utils.showSnackBar(context, 'Deleted the style');
   }
 
   void editTodo(BuildContext context, Styles todo) =>
