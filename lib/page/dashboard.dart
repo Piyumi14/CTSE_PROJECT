@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:todo_app_firestore_example/page/gallery.dart';
 import 'package:todo_app_firestore_example/page/home_page.dart';
+import 'package:todo_app_firestore_example/page/contact.dart';
 
 class Dashboard extends StatefulWidget {
   @override
@@ -107,6 +108,7 @@ class _DashboardState extends State<Dashboard> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: <Widget>[
                                 FlatButton(
+
                                   child: Image.asset(
                                       'lib/assets/images/details.png'),
                                 ),
@@ -122,6 +124,13 @@ class _DashboardState extends State<Dashboard> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: <Widget>[
                                 FlatButton(
+                                  onPressed: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => Contact()),
+                                    );
+                                  },
                                   child: Image.asset(
                                       'lib/assets/images/contact.png'),
                                 ),
